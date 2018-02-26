@@ -3,6 +3,7 @@ import './App.css';
 import Header from "./Screens/Header/Header";
 import Content from "./Screens/Content/Content";
 import Offline from "./Components/Notifications/Offline/Offline";
+import { Link, withRouter } from "react-router-dom";
 
 class App extends Component {
   render() {
@@ -16,4 +17,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);
