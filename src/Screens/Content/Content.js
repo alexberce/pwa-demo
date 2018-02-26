@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import './Content.css';
 
 //Pages
-import Routes from "../../Routes";
+import Routes from "../../Routing/AuthenticatedRouting";
 
 class Content extends Component {
     render() {
+
         const childProps = {
             isAuthenticated: true,
             userHasAuthenticated: true
@@ -13,7 +14,7 @@ class Content extends Component {
 
         return (
             <div className="app-boundary app-page-content">
-                <Routes  childProps={childProps} />
+                <Routes childProps={childProps} />
             </div>
         );
     }
