@@ -21,7 +21,7 @@ class Forms extends Component {
 
     render() {
         return (
-            <div>
+            <div className="forms-page">
                 <div className="page-title">My Forms</div>
 
                 <div className="forms-page-forms-wrapper">
