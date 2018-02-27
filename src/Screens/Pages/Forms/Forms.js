@@ -2,21 +2,42 @@ import React, { Component } from 'react';
 import './Forms.css';
 
 import Form from "../../../Components/Form/Form.js";
+import API from "../../../Services/Api";
+import {connect} from "react-redux";
 
+const api = API.create();
 
 class Forms extends Component {
 
     constructor(params){
         super(params);
 
-        this.forms = [
-            {id: 1, name: 'My first form'},
-            {id: 2, name: 'My second form'},
-            {id: 3, name: 'My third form'},
-            {id: 4, name: 'My fourth form'},
-            {id: 5, name: 'My fifth form'},
-            {id: 6, name: 'My sixth form'},
-        ];
+        //This will be moved to the model ... don't have time for it right now
+        let forms = [];
+        try {
+            forms = JSON.parse(localStorage.getItem('forms'));
+        } catch (e) {
+
+        }
+
+        this.state = {
+            forms: forms,
+        };
+    }
+
+    componentWillMount(){
+        //This will be moved in the saga ... don't have time for it right now
+        api.getForms(this.props.token)
+        .then(result => {
+            //This will be moved to the model ... don't have time for it right now
+            const forms = result.data.data || [];
+            try {
+                localStorage.setItem('forms', JSON.stringify(forms));
+            } catch (e) {
+
+            }
+            this.setState({ forms: forms });
+        });
     }
 
     render() {
@@ -25,13 +46,19 @@ class Forms extends Component {
                 <div className="page-title">My Forms</div>
 
                 <div className="forms-page-forms-wrapper">
-                    {this.forms.map((form, index) => (
+                    {this.state.forms.length ? this.state.forms.map((form, index) => (
                         <Form key={index} {...form} />
-                    ))}
+                    )): null}
                 </div>
             </div>
         );
     }
 }
 
-export default Forms;
+const mapStateToProps = state => {
+    return {
+        token: state.user.token,
+    }
+};
+
+export default connect(mapStateToProps)(Forms);
