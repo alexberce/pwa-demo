@@ -1,6 +1,7 @@
 import {call, put, select} from "redux-saga/effects";
 
 import {UserTypes} from "../Redux/UserReducer";
+import userModel from "../Models/UserModel";
 
 const login = function* (api, action) {
     try {
@@ -27,7 +28,7 @@ const login = function* (api, action) {
 
             userData.token = token;
             userData.isLoggedIn = 1;
-            //yield call(userModel.addUser, userData);
+            yield call(userModel.updateUser, userData);
             yield put({type: UserTypes.GET_USER_DATA_SUCCESS, user: userData});
         }
     } catch (error) {
@@ -52,7 +53,7 @@ const fetchRefreshToken = function* (api) {
             yield put({type: UserTypes.REFRESH_TOKEN_FAILURE, error: result.error ? result.error.message : ''});
         } else {
             // const userId = yield select(state => state.user.id);
-            //yield call(userModel.saveNewToken, userId, result.result);
+            // yield call(userModel.saveNewToken, userId, result.result);
             yield put({type: UserTypes.REFRESH_TOKEN_SUCCESS, token: result.result});
         }
     } catch (error) {
@@ -61,7 +62,7 @@ const fetchRefreshToken = function* (api) {
 };
 
 const logout = function* (){
-    //yield call(userModel.logout);
+    yield call(userModel.deleteUser);
     yield put({type: UserTypes.LOGOUT_SUCCESS});
 };
 

@@ -1,6 +1,8 @@
 import {createActions, createReducer} from "reduxsauce";
 import Immutable from "seamless-immutable";
 
+import userModel from "../Models/UserModel";
+
 /* Types and Action Creators */
 const {Types, Creators} = createActions({
     changeIsLoggedIn: ['isLoggedIn'],
@@ -31,6 +33,15 @@ const getLoggedInUser = () => {
         email: '',
         isLoggedIn: false,
     };
+
+    const user = userModel.getUser() || {};
+
+    if (Object.keys(user).length) {
+        userData.id = user.id;
+        userData.token = user.token;
+        userData.email = user.email;
+        userData.isLoggedIn = !!user.isLoggedIn;
+    }
 
     //GET DATA FROM IDB HERE
     return userData;
