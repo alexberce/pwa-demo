@@ -47,7 +47,7 @@ class Forms extends Component {
 
                 <div className="forms-page-forms-wrapper">
                     {this.state.forms.length ? this.state.forms.map((form, index) => (
-                        <Form key={index} {...form} />
+                        <Form key={form.id} {...form} />
                     )): null}
                 </div>
             </div>
