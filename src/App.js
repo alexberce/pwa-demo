@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import './App.css';
+import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
 
+import './App.css';
 import Routes from "./Routing/Routes";
-import {connect} from "react-redux";
 
 
 class App extends Component {
