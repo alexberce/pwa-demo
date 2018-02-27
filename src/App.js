@@ -1,15 +1,30 @@
 import React, {Component} from 'react';
 import './App.css';
-import {Link, withRouter} from "react-router-dom";
+import {withRouter} from "react-router-dom";
 
 import Routes from "./Routing/Routes";
+import {connect} from "react-redux";
 
 
 class App extends Component {
+
+    constructor(params){
+        super(params);
+
+        this.state = {
+            isLoggedIn: this.props.isLoggedIn,
+        };
+    }
+
+    componentWillReceiveProps(nextProps){
+        this.setState({
+            isLoggedIn: nextProps.isLoggedIn
+        });
+    }
+
     render() {
         const childProps = {
-            isAuthenticated: true,
-            userHasAuthenticated: true
+            isAuthenticated: this.state.isLoggedIn,
         };
 
         return (
@@ -20,4 +35,11 @@ class App extends Component {
     }
 }
 
-export default withRouter(App);
+const mapStateToProps = state => {
+    return {
+        isPerformingLoginRequest: state.user.isPerformingLoginRequest,
+        isLoggedIn: state.user.isLoggedIn,
+    }
+};
+
+export default connect(mapStateToProps)(withRouter(App));

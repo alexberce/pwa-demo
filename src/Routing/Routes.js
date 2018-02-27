@@ -1,11 +1,11 @@
 import React from "react";
-import {Route, Switch} from "react-router-dom";
+import {Switch} from "react-router-dom";
 
 //Component
 import asyncComponent from "./../Components/AsyncComponent";
 
 //Routing
-import AppliedRoute from "../Components/Routing/AppliedRoute";
+// import AppliedRoute from "../Components/Routing/AppliedRoute";
 import AuthenticatedRoute from "./../Components/Routing/AuthenticatedRoute";
 import UnauthenticatedRoute from "./../Components/Routing/UnauthenticatedRoute";
 
@@ -19,7 +19,7 @@ const AsyncUsers = asyncComponent(() => import("./../Screens/Pages/User/Users"))
 const AsyncDashboard = asyncComponent(() => import("./../Screens/Pages/Dashboard/Dashboard"));
 const AsyncNotFound = asyncComponent(() => import("./../Screens/Pages/NotFound/NotFound"));
 
-const AsyncLogin = asyncComponent(() => import("./../Screens/Pages/Account/Login/Login"));
+// const AsyncLogin = asyncComponent(() => import("./../Screens/Pages/Account/Login/Login"));
 const AsyncRegister = asyncComponent(() => import("./../Screens/Pages/Account/Register/Register"));
 const AsyncHome = asyncComponent(() => import("./../Screens/Pages/Home/Home"));
 
@@ -35,19 +35,17 @@ export default ({childProps}) =>
         />
         <UnauthenticatedRoute
             path="/login"
-            exact
-            component={AsyncLogin}
+            component={AsyncHome}
             props={childProps}
             layout={EmptyLayout}
         />
         <UnauthenticatedRoute
             path="/register"
-            exact
             component={AsyncRegister}
             props={childProps}
             layout={EmptyLayout}
         />
-        <AppliedRoute
+        <AuthenticatedRoute
             path="/"
             exact
             component={AsyncDashboard}
@@ -55,21 +53,18 @@ export default ({childProps}) =>
         />
         <AuthenticatedRoute
             path="/dashboard"
-            exact
             component={AsyncDashboard}
             props={childProps}
             layout={AuthenticatedLayout}
         />
         <AuthenticatedRoute
             path="/forms"
-            exact
             component={AsyncForms}
             props={childProps}
             layout={AuthenticatedLayout}
         />
         <AuthenticatedRoute
             path="/users"
-            exact
             component={AsyncUsers}
             props={childProps}
             layout={AuthenticatedLayout}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Offline from "../../../Components/Notifications/Offline/Offline";
 import Header from "./Header/Header";
+import './AuthenticatedLayout.css';
 
 class AuthenticatedLayout extends Component {
     render() {
