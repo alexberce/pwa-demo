@@ -30,13 +30,13 @@ class Forms extends Component {
         api.getForms(this.props.token)
         .then(result => {
             //This will be moved to the model ... don't have time for it right now
-            const forms = result.data.data || [];
             try {
+                const forms = result.data.data || [];
                 localStorage.setItem('forms', JSON.stringify(forms));
+                this.setState({ forms: forms });
             } catch (e) {
 
             }
-            this.setState({ forms: forms });
         });
     }
 

@@ -47,13 +47,13 @@ class Users extends Component {
         api.getUsers(this.props.token)
             .then(result => {
                 //This will be moved to the model ... don't have time for it right now
-                const users = result.data.data || [];
                 try {
+                    const users = result.data.data || [];
                     localStorage.setItem('users', JSON.stringify(users));
+                    this.setState({ users: users });
                 } catch (e) {
 
                 }
-                this.setState({ users: users });
             });
     };
 
@@ -62,13 +62,13 @@ class Users extends Component {
         api.getCompanies(this.props.token)
             .then(result => {
                 //This will be moved to the model ... don't have time for it right now
-                const companies = result.data.data || [];
                 try {
+                    const companies = result.data.data || [];
                     localStorage.setItem('companies', JSON.stringify(companies));
+                    this.setState({ companies: companies });
                 } catch (e) {
 
                 }
-                this.setState({ companies: companies });
             });
     };
 
