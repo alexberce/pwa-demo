@@ -1,0 +1,26 @@
+.users-page-companies-wrapper {
+    float: left;
+    width: 220px;
+    padding: 10px 0;
+    background: #fff;
+    border: 1px solid #ececec;
+}
+
+.users-page-users-wrapper {
+    /*float: left;*/
+    margin-left: 240px;
+}
+
+.users-page-users-wrapper .path:not(.separator) {
+    cursor: pointer;
+}
+
+.users-page-bread-crumbs > .path:not(.main) {
+    margin: 0 5px;
+    color: #0099cc;
+}
+
+.users-page-bread-crumbs > .path.separator {
+    margin: 0 10px;
+    color: #9c9c9c;
+}

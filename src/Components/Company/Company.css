@@ -1,0 +1,19 @@
+.company-item {
+    background: #FFF;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+    color: #9c9c9c;
+    overflow: hidden;
+    font-size: 14px;
+    padding: 10px 0 10px 20px;
+    cursor: pointer;
+}
+
+.company-item.active {
+    background-color: #f9f9f9;
+    border-left: 4px solid #0099cc;
+    padding-left: 16px;
+}
+
+.company-item-name {}

@@ -24,6 +24,10 @@ body {
     float: left;
 }
 
+.clear-both {
+    clear: both;
+}
+
 .app {
     position: relative;
     height: 100%;
@@ -39,5 +43,5 @@ body {
     font-weight: bold;
     color: #0099cc;
     font-size: 14px;
-    padding-top: 20px;
+    margin: 20px 0;
 }

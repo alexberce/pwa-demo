@@ -125,10 +125,26 @@ const create = (baseURL = 'https://api.123formbuilder.com/v2/') => {
         return api.post('token/refresh', data);
     };
 
+    const getCompanies = (token) => {
+        const data = {
+            JWT: token
+        };
+
+        return api.get('companies', data);
+    };
+
     const getUser = (token) => {
         const data = {
             page: 1,
             perPage: 1,
+            JWT: token
+        };
+
+        return api.get('users', data);
+    };
+
+    const getUsers = (token) => {
+        const data = {
             JWT: token
         };
 
@@ -148,7 +164,9 @@ const create = (baseURL = 'https://api.123formbuilder.com/v2/') => {
         getSubmissions,
         deleteSubmission,
 
+        getCompanies,
         getUser,
+        getUsers,
         refreshToken,
         getTokenWithUsernameAndPassword
     }
