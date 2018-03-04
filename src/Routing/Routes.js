@@ -26,13 +26,12 @@ const AsyncHome = asyncComponent(() => import("./../Screens/Pages/Home/Home"));
 //Router Switch
 export default ({childProps}) =>
     <Switch>
-        <UnauthenticatedRoute
-            path="/"
-            exact
-            component={AsyncHome}
-            props={childProps}
-            layout={EmptyLayout}
-        />
+        {/*<UnauthenticatedRoute*/}
+            {/*path="/"*/}
+            {/*component={AsyncHome}*/}
+            {/*props={childProps}*/}
+            {/*layout={EmptyLayout}*/}
+        {/*/>*/}
         <UnauthenticatedRoute
             path="/login"
             component={AsyncHome}
@@ -50,6 +49,7 @@ export default ({childProps}) =>
             exact
             component={AsyncDashboard}
             props={childProps}
+            layout={AuthenticatedLayout}
         />
         <AuthenticatedRoute
             path="/dashboard"
