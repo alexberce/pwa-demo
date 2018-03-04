@@ -1,6 +1,6 @@
 {
-  "short_name": "123FormBuilder",
-  "name": "123FormBuilder PWA Demo",
+  "short_name": "Invobox",
+  "name": "Invobox",
   "icons": [
     {
       "src": "assets/launcher-icon-48x48.png",
@@ -23,7 +23,7 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "./index.html",
+  "start_url": "/forms",
   "display": "standalone",
   "theme_color": "#FFF",
   "background_color": "#FFF"
