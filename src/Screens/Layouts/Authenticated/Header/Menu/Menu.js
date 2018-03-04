@@ -10,7 +10,11 @@ class Menu extends Component {
      * @param pageName
      */
     changePage(pageName){
-        this.props.history.push(pageName);
+        const {match} = this.props;
+
+        if (pageName !== match.url){
+            this.props.history.push(pageName);
+        }
     }
 
     render() {
