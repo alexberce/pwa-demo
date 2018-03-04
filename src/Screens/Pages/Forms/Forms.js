@@ -15,7 +15,7 @@ class Forms extends Component {
         //This will be moved to the model ... don't have time for it right now
         let forms = [];
         try {
-            forms = JSON.parse(localStorage.getItem('forms'));
+            forms = JSON.parse(localStorage.getItem('forms')) || [];
         } catch (e) {
 
         }
