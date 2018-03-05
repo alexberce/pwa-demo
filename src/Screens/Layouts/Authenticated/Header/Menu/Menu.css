@@ -20,3 +20,15 @@
     -moz-box-shadow: inset 0 -4px #5cb4e5;
     -webkit-box-shadow: inset 0 -4px #5cb4e5;
 }
+
+@media screen and (max-width: 580px) {
+    .app-menu {
+        float: none;
+        border-top: 1px solid #d2d2d2;
+        width: 100%;
+        padding-left: 10px;
+        padding-top: 15px;
+        margin-left: 0;
+        margin-top: 5px;
+    }
+}

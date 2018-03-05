@@ -19,7 +19,6 @@ class Header extends Component {
             <header className="app-header">
                 <div className="app-boundary ">
                     <Logo className="app-logo" />
-                    <Menu />
                     {
                         navigator.onLine
                             ? <div
@@ -30,6 +29,7 @@ class Header extends Component {
                             </div>
                             : null
                     }
+                    <Menu />
                 </div>
             </header>
         );

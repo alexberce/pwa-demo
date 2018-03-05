@@ -24,3 +24,13 @@
     margin: 0 10px;
     color: #9c9c9c;
 }
+
+@media screen and (max-width: 650px){
+    .users-page-companies-wrapper {
+        display: none;
+    }
+
+    .users-page-users-wrapper {
+        margin-left: 0;
+    }
+}
