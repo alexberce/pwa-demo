@@ -40,10 +40,10 @@
 
     .app-logo {
         float: none;
-        margin-left: 20px;
+        margin-left: 10px;
     }
 
     .logout-button {
-        margin-right: 20px;
+        margin-right: 10px;
     }
 }
