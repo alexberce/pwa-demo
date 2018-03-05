@@ -44,3 +44,23 @@
     min-height: 50px;
     text-align: center;
 }
+
+@media screen and (max-width: 650px){
+    .login-component {
+        width: auto;
+    }
+
+    .login-form button,
+    .login-form input {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .login-form input:first-child {
+        margin-top: 0;
+    }
+
+    .login-form button {
+        margin-bottom: 0;
+    }
+}
